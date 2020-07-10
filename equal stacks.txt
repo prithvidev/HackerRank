@@ -1,0 +1,61 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+
+public class solution{
+
+    private static final Scanner sc = new Scanner(System.in);
+    public static void main(String args[]){
+
+        int size1=sc.nextInt();
+        int size2=sc.nextInt();
+        int size3=sc.nextInt();
+
+        int total1=0;
+        int total2=0;
+        int total3=0;
+
+        Stack<Integer> stack1 = new Stack<Integer>();
+        for(int i=0; i< size1; i++){
+            int value=sc.nextInt();
+            stack1.push(value);
+            total1=total1+value;
+        }
+
+        Stack<Integer> stack2 = new Stack<Integer>();
+        for(int i=0; i< size2; i++){
+            int value=sc.nextInt();
+            stack2.push(value);
+            total2=total2+value;
+        }
+
+        Stack<Integer> stack3 = new Stack<Integer>();
+        for(int i=0; i<size3; i++){
+            int value=sc.nextInt();
+            stack3.push(value);
+            total3=total3+value;
+        }
+
+        while(!((total1==total2) && (total2==total3) && (total3==total1))){
+
+            if(total1>=total2 && total1>=total3){
+                total1=total1-stack1.remove(0);
+                ;
+            }
+            else if(total2>=total1 && total2>=total3){
+                total2=total2-stack2.remove(0);
+                
+            }
+            else{
+                total3=total3-stack3.remove(0);
+                
+            }
+
+        }
+        System.out.println(total1);
+    }
+
+}
