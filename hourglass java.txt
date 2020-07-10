@@ -1,0 +1,45 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the hourglassSum function below.
+    static int hourglassSum(int[][] arr) {
+
+        int result = Integer.MIN_VALUE;
+        for(int r=0;r<=3;r++){
+            for(int c=0;c<=3;c++){
+
+                int sum = arr[r][c] + arr[r][c+1] + arr[r][c+2] + arr[r+1][c+1] + arr[r+2][c] + arr[r+2][c+1] + arr[r+2][c+2];
+
+                result = Math.max(result,sum);
+
+            }
+        }
+        return result;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args){
+
+        int[][] arr = new int[6][6];
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                arr[i][j] = scanner.nextInt();
+            }
+        }
+
+        int result = hourglassSum(arr);
+
+        System.out.println(result);
+
+        scanner.close();
+    }
+}
