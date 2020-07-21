@@ -5,7 +5,7 @@ class StudentComparator implements Comparator<Student>{
         if(s1.getCgpa() == s2.getCgpa()){
             if(s1.getFname().equals(s2.getFname())){
                 return (s1.getId()<s2.getId())? 1:-1 ;
-            }else return (s1.getFname().CompareTo(s2.getFname()));
+            }else return (s1.getFname().compareTo(s2.getFname()));
         }else return (s1.getCgpa()<s2.getCgpa())? 1:-1;
     }
 }
